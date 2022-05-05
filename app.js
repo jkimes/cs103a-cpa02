@@ -116,6 +116,19 @@ app.post('/Search/add',
         }
     }
 )
+app.post('/Search/add/:data',
+    async(req, res, next) => {
+        try {
+            const data = req.params.data;
+            let item = new Item(data) // create the database object (and test the types are correct)
+            await item.save() // save the todo item in the database
+            console.log(item.title)
+            res.redirect('/') // go back to the todo page
+        } catch (e) {
+            next(e);
+        }
+    }
+)
 
 app.get("/delete/:itemId",
     
