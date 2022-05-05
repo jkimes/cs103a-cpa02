@@ -1,10 +1,17 @@
 
 
     <div class="bg-light border border-primary p-3 rounded m-3">
-        <h1 class="display-4 text-center">To Do List</h1>
-        <p class="lead text-center"> Wishlist'</p>
+        <h1 class="display-4 text-center">Bucket List</h1>
+       
     </div>
-    
+
+    <form method="post" action="/Search/add">
+        title:<input type="text" name="title"><br>
+        year:<input type="text" name="year"><br>
+        description:<input type="text" name="description"><br>
+        <input type="submit" value="Add Movie"><br>
+    </form>
+
     <hr>
     <ol>
         <% for (item of items){%>
