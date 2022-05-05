@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const Movie = require("./models/Movie")
 const Item = require("./models/Item")
-const mongodb_URI = "mongodb+srv://Jalon:a@cluster0.xsiln.mongodb.net/Movies"
-
+//const mongodb_URI = "mongodb+srv://Jalon:a@cluster0.xsiln.mongodb.net/Movies"
+const mongodb_URI = process.env.mongodb_URI
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
