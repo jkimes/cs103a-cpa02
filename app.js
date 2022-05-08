@@ -209,69 +209,69 @@ app.get('/Search/show/:title',
 // app.set("port", port);
 
 
-// app.listen(process.env.PORT || 3000, function(){
-//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-//   });
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
 
 
-// *********************************************************** //
-//  Starting up the server!
-// *********************************************************** //
-//Here we set the port to use between 1024 and 65535  (2^16-1)
-const port = "7000";
-app.set("port", port);
+// // *********************************************************** //
+// //  Starting up the server!
+// // *********************************************************** //
+// //Here we set the port to use between 1024 and 65535  (2^16-1)
+// const port = "7000";
+// app.set("port", port);
 
-// and now we startup the server listening on that port
-const http = require("http");
-const server = http.createServer(app);
+// // and now we startup the server listening on that port
+// const http = require("http");
+// const server = http.createServer(app);
 
-server.listen(port);
+// server.listen(port);
 
-function onListening() {
-    var addr = server.address();
-    var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-    debug("Listening on " + bind);
-}
+// function onListening() {
+//     var addr = server.address();
+//     var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+//     debug("Listening on " + bind);
+// }
 
-function onError(error) {
-    if (error.syscall !== "listen") {
-        throw error;
-    }
+// function onError(error) {
+//     if (error.syscall !== "listen") {
+//         throw error;
+//     }
 
-    var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
+//     var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
-    // handle specific listen errors with friendly messages
-    switch (error.code) {
-        case "EACCES":
-            console.error(bind + " requires elevated privileges");
-            process.exit(1);
-            break;
-        case "EADDRINUSE":
-            console.error(bind + " is already in use");
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
-}
+//     // handle specific listen errors with friendly messages
+//     switch (error.code) {
+//         case "EACCES":
+//             console.error(bind + " requires elevated privileges");
+//             process.exit(1);
+//             break;
+//         case "EADDRINUSE":
+//             console.error(bind + " is already in use");
+//             process.exit(1);
+//             break;
+//         default:
+//             throw error;
+//     }
+// }
 
-server.on("error", onError);
+// server.on("error", onError);
 
-server.on("listening", onListening);
+// server.on("listening", onListening);
 
-module.exports = app;
+// module.exports = app;
 
 
-app.get('/upsertDB',
-    async(req, res, next) => {
-        //await Course.deleteMany({})
-        for (m in movies) {
-            // console.log(m.title)
-            const { title, year, genres, rating, poster } = movies;
-            // console.log("Upsert " + m)
-            await Movie.findOneAndUpdate({ title, year, genres, rating, poster  }, m, { upsert: true })
-        }
-        const num = await Movie.find({}).count();
-        res.send("data uploaded: " + num)
-    }
-)
+// app.get('/upsertDB',
+//     async(req, res, next) => {
+//         //await Course.deleteMany({})
+//         for (m in movies) {
+//             // console.log(m.title)
+//             const { title, year, genres, rating, poster } = movies;
+//             // console.log("Upsert " + m)
+//             await Movie.findOneAndUpdate({ title, year, genres, rating, poster  }, m, { upsert: true })
+//         }
+//         const num = await Movie.find({}).count();
+//         res.send("data uploaded: " + num)
+//     }
+// )
