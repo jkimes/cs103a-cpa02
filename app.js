@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Movie = require("./Models/Movie")
-const Item = require("./models/Item")
+const Item = require("./Models/Item")
 //const mongodb_URI = "mongodb+srv://Jalon:a@cluster0.xsiln.mongodb.net/Movies"
 const mongodb_URI = process.env.mongodb_URI
 
